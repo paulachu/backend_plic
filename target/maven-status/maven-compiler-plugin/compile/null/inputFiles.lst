@@ -1,0 +1,14 @@
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Controllers/Component/Audio/AudioListenerController.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Services/GameObjectService.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Services/SceneService.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Repositories/Component/Audio/AudioListenerRepository.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Repositories/SceneRepository.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Elements/WithId.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Controllers/SceneController.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Elements/Scene.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Services/Component/Audio/AudioListenerService.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Controllers/GameObjectController.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Elements/GameObject.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Elements/Component.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Repositories/GameObjectRepository.java
+/home/pablo/PLIC/backend_plic/src/main/java/org/backend/Elements/Components/Audio/AudioListener.java
