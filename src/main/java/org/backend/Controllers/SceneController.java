@@ -29,7 +29,33 @@ public class SceneController
     @Transactional
     public Response addScene(Scene scene)
     {
-        sceneService.addNewScene(scene);
-        return Response.status(Response.Status.CREATED).entity(scene).build();
+        try {
+            sceneService.addNewScene(scene);
+            return Response.status(Response.Status.CREATED).entity(scene).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response deleteScene(@PathParam("id") Long id) {
+        if (sceneService.deleteById(id)){
+            return Response.status(Response.Status.ACCEPTED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response putScene(@PathParam("id") Long id, Scene scene) {
+        if (sceneService.putById(id, scene)){
+            return Response.status(Response.Status.ACCEPTED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 }

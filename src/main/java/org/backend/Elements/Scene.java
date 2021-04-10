@@ -17,6 +17,7 @@ public class Scene extends WithId
     public Scene(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
