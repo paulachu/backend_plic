@@ -31,7 +31,7 @@ public class SceneController
     {
         try {
             sceneService.addNewScene(scene);
-            return Response.status(Response.Status.CREATED).entity(scene).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

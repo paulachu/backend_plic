@@ -32,7 +32,7 @@ public class GameObjectController
     {
         try {
             gameObjectService.addNewGameObject(gameObject);
-            return Response.status(Response.Status.CREATED).entity(gameObject).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

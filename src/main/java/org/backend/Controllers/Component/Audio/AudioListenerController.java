@@ -32,7 +32,7 @@ public class AudioListenerController
     {
         try {
             audioListenerService.addNewAudioListener(audioListener);
-            return Response.status(Response.Status.CREATED).entity(audioListener).build();
+            return Response.status(Response.Status.CREATED).build();
         } catch (Exception e) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }
