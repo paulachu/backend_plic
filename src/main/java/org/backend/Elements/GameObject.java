@@ -129,17 +129,17 @@ public class GameObject extends WithId {
         this.scaleZ = scaleZ;
     }
 
-    public Long getScene() {
-        return scene.id;
+    public Scene getScene() {
+        return scene;
     }
 
     public void setScene(Scene scene) {
         this.scene = scene;
     }
 
-    public Long getParent() {
+    public GameObject getParent() {
         if (parent != null) {
-            return parent.getId();
+            return parent;
         }
         return null;
     }

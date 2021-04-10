@@ -1,6 +1,7 @@
 package org.backend.Controllers;
 
 import org.backend.Elements.GameObject;
+import org.backend.Elements.Scene;
 import org.backend.Services.GameObjectService;
 
 import javax.inject.Inject;
@@ -29,7 +30,33 @@ public class GameObjectController
     @Transactional
     public Response addGameObject(GameObject gameObject)
     {
-        gameObjectService.addNewGameObject(gameObject);
-        return Response.status(Response.Status.CREATED).entity(gameObject).build();
+        try {
+            gameObjectService.addNewGameObject(gameObject);
+            return Response.status(Response.Status.CREATED).entity(gameObject).build();
+        } catch (Exception e) {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
+    }
+
+    @DELETE
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response deleteGameObject(@PathParam("id") Long id) {
+        if (gameObjectService.deleteById(id)){
+            return Response.status(Response.Status.ACCEPTED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @PUT
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Transactional
+    public Response putGameObject(@PathParam("id") Long id, GameObject gameObject) {
+        if (gameObjectService.putById(id, gameObject)){
+            return Response.status(Response.Status.ACCEPTED).build();
+        }
+        return Response.status(Response.Status.NOT_FOUND).build();
     }
 }

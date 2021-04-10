@@ -12,17 +12,18 @@ public abstract  class Component extends WithId
     public Component()
     {
     }
+
     public Component(GameObject gameObject)
     {
         this.gameObject = gameObject;
     }
-    public Long getGameObject()
+
+    public GameObject getGameObject()
     {
-        return gameObject.getId();
+        return gameObject;
     }
 
     public void setGameObject(GameObject gameObject) {
         this.gameObject = gameObject;
     }
-
 }
