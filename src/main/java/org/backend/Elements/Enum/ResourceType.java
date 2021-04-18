@@ -1,2 +1,7 @@
-package org.backend.Elements.Enum;public enum ResourceType {
+package org.backend.Elements.Enum;
+
+public enum ResourceType {
+    mesh,
+    material,
+    none
 }
