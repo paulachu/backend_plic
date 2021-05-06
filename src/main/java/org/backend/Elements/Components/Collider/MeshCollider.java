@@ -1,15 +1,16 @@
 package org.backend.Elements.Components.Collider;
 
+import org.backend.Elements.Component;
 import org.backend.Elements.Enum.CookingOptions;
+import org.backend.Elements.GameObject;
 import org.backend.Elements.Resource;
-import org.backend.Elements.WithId;
 
 import javax.persistence.*;
 import java.util.Set;
 
 @Entity
 @Table
-public class MeshCollider extends WithId
+public class MeshCollider extends Component
 {
     private Boolean convex;
     private Boolean isTrigger;
@@ -19,10 +20,13 @@ public class MeshCollider extends WithId
     private Resource mesh;
     @ElementCollection
     private Set<CookingOptions> cookingOptions;
+
     public MeshCollider()
     {}
-    public MeshCollider(Boolean convex, Boolean isTrigger, Resource material, Resource mesh, Set<CookingOptions> options)
+
+    public MeshCollider(GameObject gameObject, Boolean convex, Boolean isTrigger, Resource material, Resource mesh, Set<CookingOptions> options)
     {
+        super(gameObject);
         this.convex = convex;
         this.isTrigger = isTrigger;
         this.material = material;

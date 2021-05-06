@@ -3,6 +3,7 @@ package org.backend.Controllers;
 import io.smallrye.common.annotation.Blocking;
 import org.backend.Elements.Enum.ResourceType;
 import org.backend.Elements.Resource;
+import org.backend.Elements.Scene;
 import org.backend.FormData.FormData;
 import org.backend.Services.ResourceService;
 import org.jboss.resteasy.plugins.providers.multipart.InputPart;
@@ -29,6 +30,7 @@ public class ResourceController {
     {
         return resourceService.getResources();
     }
+
     @GET
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
@@ -58,6 +60,28 @@ public class ResourceController {
             String type = input.getFormDataPart("type", String.class, null);
             FormData formData = new FormData(name, type, file);
             if (resourceService.addResourceMinio(formData)) {
+                return Response.status(Response.Status.ACCEPTED).build();
+            }
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+        catch (Exception e)
+        {
+            return Response.status(Response.Status.BAD_REQUEST).build();
+        }
+    }
+
+    @PUT
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.MULTIPART_FORM_DATA)
+    @Transactional
+    public Response putScene(@PathParam("id") Long id, MultipartFormDataInput input) {
+        try {
+            File file = input.getFormDataPart("file", File.class, null);
+            String name = input.getFormDataPart("name", String.class, null);
+            String type = input.getFormDataPart("type", String.class, null);
+            FormData formData = new FormData(name, type, file);
+            if (resourceService.putById(id, formData)) {
                 return Response.status(Response.Status.ACCEPTED).build();
             }
             return Response.status(Response.Status.BAD_REQUEST).build();
