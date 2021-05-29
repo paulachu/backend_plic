@@ -4,5 +4,8 @@ public enum ResourceType {
     mesh,
     material,
     script,
+    renderTexture,
+    texture,
+    flare,
     none
 }
