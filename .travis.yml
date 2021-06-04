@@ -5,12 +5,8 @@ services:
   - docker
   - postgresql
 before_script:
-  - psql -c 'create database plic;' -U pablo
-env:
-  global:
-    - PGPORT=5432
-    - PGUSER=pablo
-    - PGPASSWORD=202521
+  - psql -c 'create database plic;' -U postgres
+  - cp src/main/resources/application.properties.travis src/main/resources/application.properties
 jdk:
   - oraclejdk11
 before_install:

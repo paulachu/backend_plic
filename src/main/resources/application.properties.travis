@@ -1,0 +1,14 @@
+quarkus.datasource.db-kind = postgresql
+quarkus.datasource.username = pablo
+quarkus.datasource.password = 202521
+quarkus.datasource.jdbc.url = jdbc:postgresql://localhost:5432/plic
+
+quarkus.hibernate-orm.database.generation = drop-and-create
+minio.endpoint = http://127.0.0.1:9000
+minio.username = minioadmin
+minio.password = minioadmin
+#Test Profile
+%test.quarkus.datasource.db-kind = h2
+%test.quarkus.datasource.jdbc.url = jdbc:h2:mem:plic
+%test.quarkus.hibernate-orm.dialect=org.hibernate.dialect.H2Dialect
+%test.quarkus.hibernate-orm.database.generation = drop-and-create
