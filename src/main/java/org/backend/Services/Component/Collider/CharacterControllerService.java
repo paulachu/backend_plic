@@ -18,14 +18,17 @@ public class CharacterControllerService
     {
         return characterControllerRepository.listAll();
     }
+
     public void addCharacterController(CharacterController characterController)
     {
         characterControllerRepository.persist(characterController);
     }
+
     public boolean deleteById(Long id)
     {
         return characterControllerRepository.deleteById(id);
     }
+
     public boolean putById(Long id, CharacterController characterController) {
         CharacterController row = characterControllerRepository.findById(id, LockModeType.PESSIMISTIC_WRITE);
         if (row != null)
