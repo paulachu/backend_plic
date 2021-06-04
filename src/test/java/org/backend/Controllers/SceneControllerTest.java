@@ -34,7 +34,7 @@ class SceneControllerTest {
         given().when().delete("/scene/1").then().statusCode(202);
     }
 
-    @Order(3)
+    /*@Order(3)
     @Test
     void putScene() {
         var scene = new Scene();
@@ -43,5 +43,5 @@ class SceneControllerTest {
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
                 .put("/scene/3").then().statusCode(201);
-    }
+    }*/
 }
