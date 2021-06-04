@@ -1,4 +1,10 @@
 language: java
+git:
+  depth: 1
+branches:
+  only:
+    - gh-pages
+    - /.*/
 services:
   - docker
 jdk:
