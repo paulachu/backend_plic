@@ -13,6 +13,7 @@ cache:
 script:
   - sudo ./mvnw package -DskipTests
   - sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
+  - sudo ./mvnw -Dquarkus-profile=test test
 notifications:
   email:
     recipients:
