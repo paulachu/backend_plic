@@ -42,6 +42,6 @@ class SceneControllerTest {
         given().when().body(scene)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON)
                 .header(HttpHeaders.ACCEPT, MediaType.APPLICATION_JSON)
-                .put("/scene/1").then().statusCode(201);
+                .put("/scene/3").then().statusCode(201);
     }
 }
