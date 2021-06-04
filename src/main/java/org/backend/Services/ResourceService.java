@@ -21,9 +21,9 @@ public class ResourceService
 {
     @Inject
     ResourceRepository resourceRepository;
-    @Inject
-    ConfigurationProperties props;
-
+    private String minio_url = "http://127.0.0.1:9000";
+    private String minio_user = "minioadmin";
+    private String minio_pwd = "minioadmin";
     public List<Resource> getResources()
     {
         return resourceRepository.listAll();
@@ -41,8 +41,8 @@ public class ResourceService
             resourceRepository.persist(ent);
             MinioClient minioClient =
                     MinioClient.builder()
-                            .endpoint(props.endpoint)
-                            .credentials(props.username, props.password)
+                            .endpoint(minio_url)
+                            .credentials(minio_user, minio_pwd)
                             .build();
             minioClient.putObject(
                     PutObjectArgs.builder().bucket(resource.type).object(resource.name)
@@ -69,8 +69,8 @@ public class ResourceService
             try {
                 MinioClient minioClient =
                         MinioClient.builder()
-                                .endpoint(props.endpoint)
-                                .credentials(props.username, props.password)
+                                .endpoint(minio_url)
+                                .credentials(minio_user, minio_pwd)
                                 .build();
                 minioClient.putObject(
                         PutObjectArgs.builder().bucket(resource.type).object(resource.name)
