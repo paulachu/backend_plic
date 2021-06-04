@@ -14,3 +14,4 @@ notifications:
       - mehdi.seddiki@epita.fr
     on_success: change
     on_failure: always
+
