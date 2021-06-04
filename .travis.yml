@@ -1,13 +1,11 @@
-os: linux
-dist: xenial
 language: java
 services:
   - docker
 jdk:
   - oraclejdk11
 script:
-  ./mvnw package -Pnative
-  docker build -f src/main/docker/Dockerfile.native -t quarkus/backend .
+  sudo mvn package
+  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
 notifications:
   email:
     recipients:
