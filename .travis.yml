@@ -4,8 +4,7 @@ services:
 jdk:
   - oraclejdk11
 script:
-  sudo ./mvnw package
-  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
+  sudo ./mvnw test
 notifications:
   email:
     recipients:
