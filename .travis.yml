@@ -3,6 +3,14 @@ sudo: true
 language: java
 services:
   - docker
+  - postgresql
+before_script:
+  - psql -c 'create database plic;' -U pablo
+env:
+  global:
+    - PGPORT=5432
+    - PGUSER=pablo
+    - PGPASSWORD=202521
 jdk:
   - oraclejdk11
 before_install:
