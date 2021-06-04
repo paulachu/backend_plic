@@ -1,14 +1,23 @@
+dist: trusty
+sudo: true
 language: java
 services:
   - docker
 jdk:
   - oraclejdk11
+before_install:
+  - chmod +x mvnw
+cache:
+  directories:
+    - "$HOME/.m2/repository"
 script:
-  ./mvnw -Dquarkus-profile=test test
+  java --version
+  ./mvnw clean install
+  sudo ./mvnw package
+  sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
 notifications:
   email:
     recipients:
       - mehdi.seddiki@epita.fr
     on_success: change
     on_failure: always
-
