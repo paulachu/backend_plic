@@ -15,6 +15,7 @@ script:
   ./mvnw clean install
   sudo ./mvnw package
   sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
+  sudo ./mvnw test
 notifications:
   email:
     recipients:
