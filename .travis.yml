@@ -11,7 +11,7 @@ cache:
   directories:
     - "$HOME/.m2/repository"
 script:
-  - sudo ./mvnw package
+  - sudo ./mvnw package -DskipTests
   - sudo docker build -f src/main/docker/Dockerfile.jvm -t quarkus/backend-jvm .
 notifications:
   email:
