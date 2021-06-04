@@ -1,0 +1,16 @@
+os: linux
+dist: xenial
+language: java
+services:
+  - docker
+jdk:
+  - oraclejdk11
+script:
+  ./mvnw package -Pnative
+  docker build -f src/main/docker/Dockerfile.native -t quarkus/backend .
+notifications:
+  email:
+    recipients:
+      - mehdi.seddiki@epita.fr
+    on_success: change
+    on_failure: always
