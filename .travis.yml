@@ -4,7 +4,7 @@ services:
 jdk:
   - oraclejdk11
 script:
-  sudo ./mvnw test
+  ./mvnw -Dquarkus-profile=test test
 notifications:
   email:
     recipients:
