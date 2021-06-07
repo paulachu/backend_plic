@@ -21,7 +21,9 @@ script:
 notifications:
   email:
     recipients:
-      - mehdi.seddiki@epita.fr
+      - alexia.becouze@epita.fr
+      - erwan.salle@epita.fr
+      - radicpaul25@gmail.com
     on_success: change
     on_failure: always
 
