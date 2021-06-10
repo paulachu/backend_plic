@@ -1,5 +1,23 @@
 # backend project
 
+## Introduction
+This project is the backoffice of a Unity game. Its goal is to store game objects in order to make our epic game modular.
+
+
+## Requirements
+
+To run this project you need :
+* an IDE
+* jdk 11
+* maven
+* postgresql
+
+## CI
+This project uses travis CI to be sure you write clean code that works.
+If you want to be notified you can add you email in the file .travis.yml.
+Moreover, if you joined our discord there is a channel called ci-backend where you can see the result of each travis ci build.
+
+## Quarkus
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
 If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
