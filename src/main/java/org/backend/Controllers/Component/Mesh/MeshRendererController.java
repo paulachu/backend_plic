@@ -5,6 +5,7 @@ import org.backend.Elements.Components.Mesh.MeshFilter;
 import org.backend.Elements.Components.Mesh.MeshRenderer;
 import org.backend.Services.Component.Mesh.MeshRendererService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -23,6 +24,7 @@ public class MeshRendererController {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -33,6 +35,7 @@ public class MeshRendererController {
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -46,6 +49,7 @@ public class MeshRendererController {
     }
 
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional

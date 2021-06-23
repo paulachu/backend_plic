@@ -5,6 +5,7 @@ import org.backend.Elements.Components.Collider.CharacterController;
 import org.backend.Services.Component.Collider.CharacterControllerService;
 
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -24,6 +25,7 @@ public class CharacterControllerController
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -32,7 +34,9 @@ public class CharacterControllerController
         characterControllerService.addCharacterController(characterController);
         return Response.status(Response.Status.CREATED).build();
     }
+
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -44,7 +48,9 @@ public class CharacterControllerController
         }
         return Response.status(Response.Status.NOT_FOUND).build();
     }
+
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional

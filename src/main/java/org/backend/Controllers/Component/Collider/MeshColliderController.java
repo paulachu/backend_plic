@@ -3,6 +3,7 @@ package org.backend.Controllers.Component.Collider;
 import org.backend.Elements.Components.Collider.MeshCollider;
 import org.backend.Services.Component.Collider.MeshColliderService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -23,6 +24,7 @@ public class MeshColliderController {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -33,6 +35,7 @@ public class MeshColliderController {
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -46,6 +49,7 @@ public class MeshColliderController {
     }
 
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional

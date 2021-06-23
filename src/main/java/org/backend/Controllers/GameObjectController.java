@@ -4,6 +4,7 @@ import org.backend.Elements.GameObject;
 import org.backend.Elements.Scene;
 import org.backend.Services.GameObjectService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -25,6 +26,7 @@ public class GameObjectController
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -39,6 +41,7 @@ public class GameObjectController
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -50,6 +53,7 @@ public class GameObjectController
     }
 
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional

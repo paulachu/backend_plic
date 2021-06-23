@@ -4,6 +4,7 @@ import org.backend.Elements.Scene;
 import org.backend.Services.SceneService;
 
 import java.util.List;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -24,6 +25,7 @@ public class SceneController
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -38,6 +40,7 @@ public class SceneController
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -49,6 +52,7 @@ public class SceneController
     }
 
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional

@@ -4,6 +4,7 @@ import org.backend.Elements.Components.Collider.MeshCollider;
 import org.backend.Elements.Components.Mesh.MeshFilter;
 import org.backend.Services.Component.Mesh.MeshFilterService;
 
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import javax.ws.rs.*;
@@ -25,6 +26,7 @@ public class MeshFilterController {
     }
 
     @POST
+    @RolesAllowed("admin")
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
     @Transactional
@@ -35,6 +37,7 @@ public class MeshFilterController {
     }
 
     @DELETE
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
@@ -48,6 +51,7 @@ public class MeshFilterController {
     }
 
     @PUT
+    @RolesAllowed("admin")
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     @Transactional
